@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include <EquipmentBase.h>
 #include "CharacterEquipmentComponent.generated.h"
 
 
@@ -15,6 +16,9 @@ class CHARACTEREQUIPMENTSYSTEM_API UCharacterEquipmentComponent : public UActorC
 public:	
 	// Sets default values for this component's properties
 	UCharacterEquipmentComponent();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AEquipmentBase* CurrentEquipment;
 
 protected:
 	// Called when the game starts
