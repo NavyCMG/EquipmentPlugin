@@ -3,6 +3,7 @@
 
 #include "CharacterEquipmentComponent.h"
 
+
 // Sets default values for this component's properties
 UCharacterEquipmentComponent::UCharacterEquipmentComponent()
 {
@@ -10,17 +11,19 @@ UCharacterEquipmentComponent::UCharacterEquipmentComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
 }
 
+
+void UCharacterEquipmentComponent::UseEquipment()
+{
+	CurrentEquipment->ActivateEquipment();
+}
 
 // Called when the game starts
 void UCharacterEquipmentComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
 }
 
 
@@ -29,6 +32,5 @@ void UCharacterEquipmentComponent::TickComponent(float DeltaTime, ELevelTick Tic
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
 }
 

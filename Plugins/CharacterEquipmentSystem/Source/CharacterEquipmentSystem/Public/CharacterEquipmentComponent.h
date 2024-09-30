@@ -7,6 +7,9 @@
 #include <EquipmentBase.h>
 #include "CharacterEquipmentComponent.generated.h"
 
+class UInputAction;
+struct FInputActionValue;
+
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CHARACTEREQUIPMENTSYSTEM_API UCharacterEquipmentComponent : public UActorComponent
@@ -17,8 +20,14 @@ public:
 	// Sets default values for this component's properties
 	UCharacterEquipmentComponent();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = EquipmentComponent)
 	AEquipmentBase* CurrentEquipment;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = EquipmentComponent)
+	TArray <AEquipmentBase*> EquipmentAvailable;
+
+	UFUNCTION(BlueprintCallable, Category = EquipmentComponent)
+	void UseEquipment();
 
 protected:
 	// Called when the game starts

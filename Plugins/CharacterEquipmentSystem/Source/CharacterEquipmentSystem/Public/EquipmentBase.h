@@ -31,11 +31,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Charge)
 	void ChargeRateUpdate(float ChargeRateNew);
 
-	/*UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = EquipmentFunctions)
-	void ActivateEquipment();*/
-
-	UFUNCTION(BlueprintCallable)
-	virtual void UseEquipment();
+	UFUNCTION(BlueprintCallable, Category = "EquipmentComponent")
+	virtual void ActivateEquipment();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Charge)
 	UCurveFloat* ChargeTimelineCurve;
@@ -58,8 +55,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Defaults)
 	bool CanDeploy;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Defaults)
-	UStaticMeshComponent* EquipmentMesh;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Defaults)
+	//UStaticMeshComponent* EquipmentMesh;
 
 protected:
 	// Called when the game starts or when spawned

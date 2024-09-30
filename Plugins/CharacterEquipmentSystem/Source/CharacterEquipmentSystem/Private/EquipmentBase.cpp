@@ -6,8 +6,8 @@
 // Sets default values
 AEquipmentBase::AEquipmentBase()
 {
-	EquipmentMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EquipmentMesh"));
-	SetRootComponent(EquipmentMesh);
+	//EquipmentMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EquipmentMesh"));
+	//SetRootComponent(EquipmentMesh);
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	// creating the timeline
@@ -54,12 +54,7 @@ void AEquipmentBase::ChargeRateUpdate(float ChargeRateNew)
 	ChargeTimeline->SetPlayRate(1 / ChargeRate);
 }
 
-//void AEquipmentBase::ActivateEquipment()
-//{
-//	UseEquipment();
-//}
-
-void AEquipmentBase::UseEquipment()
+void AEquipmentBase::ActivateEquipment()
 {
 
 }
