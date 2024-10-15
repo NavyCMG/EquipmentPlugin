@@ -16,7 +16,7 @@ UCharacterEquipmentComponent::UCharacterEquipmentComponent()
 
 void UCharacterEquipmentComponent::UseEquipment()
 {
-	CurrentEquipment->ActivateEquipment();
+	//CurrentEquipment->ActivateEquipment();
 }
 
 // Called when the game starts

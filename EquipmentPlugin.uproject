@@ -34,6 +34,10 @@
 			"Name": "AAA_HealthSystem",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/0d95a1d2df0044f2aa97f53f4f2ef2d3"
+		},
+		{
+			"Name": "CharacterEquipmentSystem",
+			"Enabled": true
 		}
 	]
 }

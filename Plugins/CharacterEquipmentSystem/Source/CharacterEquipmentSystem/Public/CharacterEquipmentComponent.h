@@ -7,8 +7,8 @@
 #include <EquipmentBase.h>
 #include "CharacterEquipmentComponent.generated.h"
 
-class UInputAction;
-struct FInputActionValue;
+//class UInputAction;
+//struct FInputActionValue;
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -23,14 +23,17 @@ public:
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Charge)
 	//UCurveFloat* ChargeTimelineCurve;
 
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
+	AEquipmentBase* CurrentEquipment;*/
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
-	AEquipmentBase* CurrentEquipment;
+	TSubclassOf<AEquipmentBase> CurrentEquipment;
 
 	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
 	AActor* CurrentEquipmentIDK;*/
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
-	TArray <AEquipmentBase*> EquipmentAvailable;
+	TArray <TSubclassOf<AEquipmentBase>> EquipmentAvailable;
 
 	UFUNCTION(BlueprintCallable, Category = EquipmentComponent)
 	void UseEquipment();

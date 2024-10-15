@@ -15,10 +15,10 @@
 	"IsExperimentalVersion": false,
 	"Installed": true,
 	"Modules": [
-		{
-			"Name": "CharacterEquipmentSystem",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
+    {
+      "Name": "CharacterEquipmentSystem",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
 	]
 }
