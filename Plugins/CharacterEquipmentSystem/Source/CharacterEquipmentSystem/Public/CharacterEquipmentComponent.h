@@ -23,11 +23,11 @@ public:
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Charge)
 	//UCurveFloat* ChargeTimelineCurve;
 
-	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
-	AEquipmentBase* CurrentEquipment;*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
+	AEquipmentBase* CurrentEquipment;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
-	TSubclassOf<AEquipmentBase> CurrentEquipment;
+	TSubclassOf<AEquipmentBase> StartingEquipment;
 
 	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
 	AActor* CurrentEquipmentIDK;*/

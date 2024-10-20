@@ -11,12 +11,14 @@ UCharacterEquipmentComponent::UCharacterEquipmentComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
+	
 }
 
 
 void UCharacterEquipmentComponent::UseEquipment()
 {
-	//CurrentEquipment->ActivateEquipment();
+	CurrentEquipment->ActivateEquipment();	
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("UseEquipment From component"));
 }
 
 // Called when the game starts
@@ -24,6 +26,11 @@ void UCharacterEquipmentComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	if (StartingEquipment != nullptr)
+	{
+		CurrentEquipment = (AEquipmentBase*) GetWorld()->SpawnActor(StartingEquipment);
+		//GetWorld()->SpawnActor<StartingEquipment>(ABaseEquipment, )
+	}
 }
 
 

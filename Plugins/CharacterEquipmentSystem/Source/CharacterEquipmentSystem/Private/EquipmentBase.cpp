@@ -56,7 +56,7 @@ void AEquipmentBase::ChargeRateUpdate(float ChargeRateNew)
 
 void AEquipmentBase::ActivateEquipment()
 {
-
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Activate equipment from equipment base"));
 }
 
 // Called when the game starts or when spawned
