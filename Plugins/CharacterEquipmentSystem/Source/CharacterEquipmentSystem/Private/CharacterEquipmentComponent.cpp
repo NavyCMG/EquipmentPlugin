@@ -2,6 +2,7 @@
 
 
 #include "CharacterEquipmentComponent.h"
+//#include "../../../../../../../../../../Program Files/Epic Games/UE_5.4/Engine/Plugins/EnhancedInput/Source/EnhancedInput/Public/EnhancedInputSubsystems.h"
 
 
 // Sets default values for this component's properties
@@ -26,10 +27,21 @@ void UCharacterEquipmentComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//Set this component's owner as a variable
+	Owner = Cast<APawn>(GetOwner());
 	if (StartingEquipment != nullptr)
 	{
 		CurrentEquipment = (AEquipmentBase*) GetWorld()->SpawnActor(StartingEquipment);
 		//GetWorld()->SpawnActor<StartingEquipment>(ABaseEquipment, )
+	}
+	// Add Input Mapping Context
+	if (APlayerController* PlayerController = Cast<APlayerController>(Owner->GetController()))
+	{
+		
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(EquipmentMappingContext, 3);
+		}
 	}
 }
 

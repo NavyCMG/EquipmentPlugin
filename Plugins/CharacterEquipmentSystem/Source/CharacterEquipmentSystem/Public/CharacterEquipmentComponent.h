@@ -5,10 +5,13 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include <EquipmentBase.h>
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputMappingContext.h"
 #include "CharacterEquipmentComponent.generated.h"
 
-//class UInputAction;
-//struct FInputActionValue;
+class UInputMappingContext;
+class UInputAction;
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -20,8 +23,14 @@ public:
 	// Sets default values for this component's properties
 	UCharacterEquipmentComponent();
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Charge)
-	//UCurveFloat* ChargeTimelineCurve;
+	UPROPERTY()
+	APawn* Owner;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
+	UInputMappingContext* EquipmentMappingContext;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
+	UInputAction* UseEquipmentAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
 	AEquipmentBase* CurrentEquipment;
