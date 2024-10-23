@@ -12,7 +12,8 @@
 
 class UInputMappingContext;
 class UInputAction;
-
+class UEnhancedInputLocalPlayerSubsystem;
+class UEnhancedInputComponent;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CHARACTEREQUIPMENTSYSTEM_API UCharacterEquipmentComponent : public UActorComponent
@@ -33,6 +34,9 @@ public:
 	UInputAction* UseEquipmentAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
+	UInputAction* SwapEquipmentAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
 	AEquipmentBase* CurrentEquipment;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Equipment)
@@ -46,6 +50,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = EquipmentComponent)
 	void UseEquipment();
+
+	UFUNCTION(BlueprintCallable, Category = EquipmentComponent)
+	void SwapEquipment();
 
 protected:
 	// Called when the game starts
