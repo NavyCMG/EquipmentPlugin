@@ -56,6 +56,7 @@ void AEquipmentBase::ChargeRateUpdate(float ChargeRateNew)
 
 void AEquipmentBase::ActivateEquipment()
 {
+	Charge -= ChargeRequired;
 	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Activate equipment from equipment base"));
 }
 

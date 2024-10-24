@@ -22,11 +22,6 @@ void UCharacterEquipmentComponent::UseEquipment()
 	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("UseEquipment From component"));
 }
 
-void UCharacterEquipmentComponent::SwapEquipment()
-{
-
-}
-
 // Called when the game starts
 void UCharacterEquipmentComponent::BeginPlay()
 {
@@ -50,8 +45,6 @@ void UCharacterEquipmentComponent::BeginPlay()
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 		{
 			EnhancedInputComponent->BindAction(UseEquipmentAction, ETriggerEvent::Triggered, this, &UCharacterEquipmentComponent::UseEquipment);
-
-			EnhancedInputComponent->BindAction(SwapEquipmentAction, ETriggerEvent::Triggered, this, &UCharacterEquipmentComponent::SwapEquipment);
 
 		}
 	}
