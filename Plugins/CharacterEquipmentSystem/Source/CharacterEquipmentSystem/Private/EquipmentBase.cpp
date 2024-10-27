@@ -19,22 +19,26 @@ AEquipmentBase::AEquipmentBase()
 
 }
 
+//Function responsible for using the timeline to update the Charge value
 void AEquipmentBase::ChargeTimelineProgress(float progress)
 {
 	Charge = progress;
 }
 
+//A function to be used upon timeline end (when at full charge). Currently doesn't do anything, feel free to set any personal functions here or overwrite in blueprint
 void AEquipmentBase::ChargeTimelineEnd()
 {
 
 }
 
+//A function for communicating a change in the current charge ammount to the timeline
 void AEquipmentBase::ChargeUpdate(float ChargeChange)
 {
 	ChargeTimeline->SetNewTime(Charge - ChargeChange);
 	ChargeTimeline->Play();
 }
 
+//A function for checking if the equipment is currently usable
 bool AEquipmentBase::CanUseEquipment()
 {
 	if (Charge >= ChargeRequired)
@@ -48,6 +52,7 @@ bool AEquipmentBase::CanUseEquipment()
 	return CanDeploy;
 }
 
+//
 void AEquipmentBase::ChargeRateUpdate(float ChargeRateNew)
 {
 	ChargeRate = ChargeRateNew;

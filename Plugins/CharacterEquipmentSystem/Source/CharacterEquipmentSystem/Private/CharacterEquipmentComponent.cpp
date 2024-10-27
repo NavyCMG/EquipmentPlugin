@@ -2,7 +2,6 @@
 
 
 #include "CharacterEquipmentComponent.h"
-//#include "../../../../../../../../../../Program Files/Epic Games/UE_5.4/Engine/Plugins/EnhancedInput/Source/EnhancedInput/Public/EnhancedInputSubsystems.h"
 
 
 // Sets default values for this component's properties
@@ -15,10 +14,11 @@ UCharacterEquipmentComponent::UCharacterEquipmentComponent()
 	
 }
 
-
+//Called from the Equipment component to use the functionality of the currently used equipment itself
 void UCharacterEquipmentComponent::UseEquipment()
 {
 	CurrentEquipment->ActivateEquipment();	
+	//on screen message for the purpose of validating the function is being called correctly
 	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("UseEquipment From component"));
 }
 
@@ -29,10 +29,10 @@ void UCharacterEquipmentComponent::BeginPlay()
 
 	//Set this component's owner as a variable
 	Owner = Cast<APawn>(GetOwner());
+	//If a starting equipment is selected, spawn an instance of said equipment for the player to use.
 	if (StartingEquipment != nullptr)
 	{
 		CurrentEquipment = (AEquipmentBase*) GetWorld()->SpawnActor(StartingEquipment);
-		//GetWorld()->SpawnActor<StartingEquipment>(ABaseEquipment, )
 	}
 	// Add Input Mapping Context
 	if (APlayerController* PlayerController = Cast<APlayerController>(Owner->GetController()))
@@ -42,6 +42,7 @@ void UCharacterEquipmentComponent::BeginPlay()
 		{
 			Subsystem->AddMappingContext(EquipmentMappingContext, 3);
 		}
+		//Bind the equipment component function to the new input mapping context.
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 		{
 			EnhancedInputComponent->BindAction(UseEquipmentAction, ETriggerEvent::Triggered, this, &UCharacterEquipmentComponent::UseEquipment);
