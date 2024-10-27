@@ -14,7 +14,7 @@ AEquipmentBase::AEquipmentBase()
 	ChargeTimeline = CreateDefaultSubobject<UTimelineComponent>(TEXT("ChargeTimeline"));
 	// creating some default values, can be over written in editor
 	ChargeMax = 1;
-	ChargeRate = 15;
+	ChargeRate = 5;
 	ChargeRequired = .5;
 
 }
@@ -52,17 +52,22 @@ bool AEquipmentBase::CanUseEquipment()
 	return CanDeploy;
 }
 
-//
+//Allows for changing the speed that the equipment recharges at in secconds
 void AEquipmentBase::ChargeRateUpdate(float ChargeRateNew)
 {
 	ChargeRate = ChargeRateNew;
 	ChargeTimeline->SetPlayRate(1 / ChargeRate);
 }
 
+//Performs whatever the equipment's unique function is and reduces charge by the appropriate ammount
 void AEquipmentBase::ActivateEquipment()
 {
-	Charge -= ChargeRequired;
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Activate equipment from equipment base"));
+	if (CanUseEquipment())
+	{
+		Charge -= ChargeRequired;
+		//message to visually show that this function was called properly
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Activate equipment from equipment base"));
+	}
 }
 
 // Called when the game starts or when spawned
