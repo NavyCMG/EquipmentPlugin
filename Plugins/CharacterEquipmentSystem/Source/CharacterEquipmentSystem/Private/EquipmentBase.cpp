@@ -72,6 +72,8 @@ void AEquipmentBase::BeginPlay()
 {
 	Super::BeginPlay();
 	Charge = ChargeMax;
+	//Sets the timeline to match the current charge
+	ChargeTimeline->SetPlaybackPosition((Charge / ChargeMax), false, false);
 	ChargeRateUpdate(ChargeRate);
 
 	//create and bind an event/ function to the timeline start
