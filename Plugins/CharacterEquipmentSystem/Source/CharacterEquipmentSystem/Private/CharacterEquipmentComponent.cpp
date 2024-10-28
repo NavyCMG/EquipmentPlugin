@@ -33,6 +33,7 @@ void UCharacterEquipmentComponent::BeginPlay()
 	if (StartingEquipment != nullptr)
 	{
 		CurrentEquipment = (AEquipmentBase*) GetWorld()->SpawnActor(StartingEquipment);
+		CurrentEquipment->AttachToActor(Owner, FAttachmentTransformRules::SnapToTargetIncludingScale);
 	}
 	// Add Input Mapping Context
 	if (APlayerController* PlayerController = Cast<APlayerController>(Owner->GetController()))
